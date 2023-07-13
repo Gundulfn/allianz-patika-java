@@ -1,5 +1,6 @@
 package model;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class DanceCourse {
@@ -14,6 +15,8 @@ public class DanceCourse {
 
     private String taxOffice;
 
+    private BigDecimal totalMoney;
+
     private List<BankAccount> bankAccountList;
 
     private List<PaymentMovement> paymentMovementList;
@@ -22,15 +25,36 @@ public class DanceCourse {
 
     private List<Student> studentList;
 
+    private List<Lecture> lectureList;
+
+    private int capacity;
+
     public DanceCourse() {
     }
 
-    public DanceCourse(String name, String address, String founder, String taxNumber, String taxOffice) {
+    public DanceCourse(String name, String address, String founder, String taxNumber, String taxOffice, int capacity) {
         this.name = name;
         this.address = address;
         this.founder = founder;
         this.taxNumber = taxNumber;
         this.taxOffice = taxOffice;
+        this.capacity = capacity;
+    }
+
+    public BigDecimal getTotalMoney() {
+        return totalMoney;
+    }
+
+    public void setTotalMoney(BigDecimal totalMoney) {
+        this.totalMoney = totalMoney;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
     public String getName() {
@@ -105,18 +129,27 @@ public class DanceCourse {
         this.studentList = studentList;
     }
 
+    public List<Lecture> getLectureList() {
+        return lectureList;
+    }
+
+    public void setLectureList(List<Lecture> lectureList) {
+        this.lectureList = lectureList;
+    }
+
     @Override
     public String toString() {
-        return "DanceCourse{" +
-                "name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", founder='" + founder + '\'' +
-                ", taxNumber='" + taxNumber + '\'' +
-                ", taxOffice='" + taxOffice + '\'' +
-                ", bankAccountList=" + bankAccountList +
-                ", paymentMovementList=" + paymentMovementList +
-                ", instructorList=" + instructorList +
-                ", studentList=" + studentList +
-                '}';
+        return "DanceCourse:" + '\n' +
+                "- name='" + name + '\'' + '\n' +
+                "- address='" + address + '\'' + '\n' +
+                "- founder='" + founder + '\'' + '\n' +
+                "- taxNumber='" + taxNumber + '\'' + '\n' +
+                "- taxOffice='" + taxOffice + '\'' + '\n' +
+                "- totalMoney='" + totalMoney + '\'' + '\n' +
+                "- bankAccountList=" + bankAccountList + '\n' +
+                "- paymentMovementList=" + paymentMovementList + '\n' +
+                "- instructorList=" + instructorList + '\n' +
+                "- studentList=" + studentList + '\n' +
+                "- lectureList=" + lectureList;
     }
 }

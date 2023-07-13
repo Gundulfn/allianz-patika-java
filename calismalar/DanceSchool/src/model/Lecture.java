@@ -1,6 +1,7 @@
 package model;
 
 import java.util.List;
+import java.util.Set;
 
 public class Lecture {
 
@@ -12,18 +13,21 @@ public class Lecture {
 
     private int capacity;
 
-    private List<LectureScheduleTime> lectureScheduleTimeList;
+    private LectureType lectureType;
+
+    private Set<LectureScheduleTime> lectureScheduleTimeSet;
 
     private List<Student> studentList;
 
     public Lecture() {
     }
 
-    public Lecture(String name, Instructor instructor, Branch branch, int capacity) {
+    public Lecture(String name, Instructor instructor, Branch branch, int capacity, LectureType lectureType) {
         this.name = name;
         this.instructor = instructor;
         this.branch = branch;
         this.capacity = capacity;
+        this.lectureType = lectureType;
     }
 
     public String getName() {
@@ -58,12 +62,20 @@ public class Lecture {
         this.capacity = capacity;
     }
 
-    public List<LectureScheduleTime> getLectureScheduleTimeList() {
-        return lectureScheduleTimeList;
+    public LectureType getLectureType() {
+        return lectureType;
     }
 
-    public void setLectureScheduleTimeList(List<LectureScheduleTime> lectureScheduleTimeList) {
-        this.lectureScheduleTimeList = lectureScheduleTimeList;
+    public void setLectureType(LectureType lectureType) {
+        this.lectureType = lectureType;
+    }
+
+    public Set<LectureScheduleTime> getLectureScheduleTimeSet() {
+        return lectureScheduleTimeSet;
+    }
+
+    public void setLectureScheduleTimeSet(Set<LectureScheduleTime> lectureScheduleTimeSet) {
+        this.lectureScheduleTimeSet = lectureScheduleTimeSet;
     }
 
     public List<Student> getStudentList() {
@@ -81,7 +93,8 @@ public class Lecture {
                 ", instructor=" + instructor +
                 ", branch=" + branch +
                 ", capacity=" + capacity +
-                ", lectureScheduleTimeList=" + lectureScheduleTimeList +
+                ", lectureType=" + lectureType +
+                ", lectureScheduleTimeSet=" + lectureScheduleTimeSet +
                 ", studentList=" + studentList +
                 '}';
     }

@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class InstructorService {
-
     //... VarArgs
     public static Instructor createInstructor(String name, int age, Sex sex, BigDecimal salary, Branch... branches){
         Instructor instructor = new Instructor(name, age, sex, salary);
