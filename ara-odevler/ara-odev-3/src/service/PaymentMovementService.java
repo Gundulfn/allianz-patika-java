@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 public class PaymentMovementService {
 
-    public static PaymentMovement createPaymentMovement(BankAccount bankAccount, String description,
+    public PaymentMovement createPaymentMovement(BankAccount bankAccount, String description,
                                                         MovementTypeEnum movementType, BigDecimal amount){
         return new PaymentMovement(bankAccount, description, movementType, amount);
     }

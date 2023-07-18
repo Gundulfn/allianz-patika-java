@@ -5,6 +5,7 @@ import model.Proposal;
 import model.Vehicle;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class ProposalService {
@@ -26,7 +27,7 @@ public class ProposalService {
         proposal.setOfferPrice(offerPrice);
     }
 
-    public void addDatesToProposal(Proposal proposal, Date startDate, Date endDate, Date expireDate){
+    public void addDatesToProposal(Proposal proposal, LocalDate startDate, LocalDate endDate, LocalDate expireDate){
         proposal.setStartDate(startDate);
         proposal.setEndDate(endDate);
         proposal.setExpireDate(expireDate);
@@ -38,5 +39,17 @@ public class ProposalService {
 
     public void addDiscountPriceToProposal(Proposal proposal, BigDecimal discountPrice){
         proposal.setDiscountPrice(discountPrice);
+    }
+
+    public BigDecimal getDiscountedPrice(Proposal proposal){
+        BigDecimal discountedPrice = BigDecimal.ZERO;
+        if(proposal.getDiscountPrice() != null){
+            discountedPrice = proposal.getOfferPrice();
+        }
+
+        if(proposal.getDiscountPrice() != null)
+            discountedPrice = discountedPrice.subtract(proposal.getDiscountPrice());
+
+        return discountedPrice;
     }
 }

@@ -8,8 +8,8 @@ import model.Vehicle;
 import java.util.ArrayList;
 
 public class InsuranceRequestService {
-    public InsuranceRequest createInsuranceRequest(Vehicle vehicle, Policy policy){
-        InsuranceRequest insuranceRequest = new InsuranceRequest(vehicle, policy);
+    public InsuranceRequest createInsuranceRequest(Vehicle vehicle){
+        InsuranceRequest insuranceRequest = new InsuranceRequest(vehicle);
         return insuranceRequest;
     }
 
@@ -18,5 +18,9 @@ public class InsuranceRequestService {
             insuranceRequest.setProposalList(new ArrayList<>());
 
         insuranceRequest.getProposalList().add(proposal);
+    }
+
+    public void addPolicyToInsuranceRequest(InsuranceRequest insuranceRequest, Policy policy){
+        insuranceRequest.setPolicy(policy);
     }
 }
