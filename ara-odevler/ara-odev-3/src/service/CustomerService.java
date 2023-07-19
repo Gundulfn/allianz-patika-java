@@ -82,7 +82,7 @@ public class CustomerService {
                                 insuranceCompanyService.addPolicyMoney(_proposal.getCompany(), agency, discountedPrice);
 
                                 // Creating policy
-                                _proposal.setApproved(true);
+                                proposalService.setIsApprovedStateOfProposal(_proposal, true);
                                 Policy policy = policyService
                                         .createPolicy(_proposal.getCompany(), _insuranceRequest.getVehicle(),
                                                 discountedPrice, _proposal.getStartDate(), _proposal.getEndDate());
