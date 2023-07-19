@@ -44,7 +44,7 @@ public class InsuranceCompanyService {
         }
 
         BankAccount bankAccount = insuranceCompany.getBankAccountList().get(0);
-        BigDecimal commissionPay = amount.multiply(insuranceCompany.getCommission());
+        BigDecimal commissionPay = BigDecimalRoundService.round(amount.multiply(insuranceCompany.getCommission()));
 
         amount = amount.subtract(commissionPay);
         bankAccount.setAmount(bankAccount.getAmount().add(amount));

@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.Date;
 
 public class Main {
 
@@ -17,6 +18,7 @@ public class Main {
         VehicleService vehicleService = new VehicleService();
         InsuranceRequestService insuranceRequestService = new InsuranceRequestService();
         ProposalService proposalService = new ProposalService();
+        AccidentService accidentService = new AccidentService();
 
         // Agency settings
         Agency agency = agencyService.createAgency("MOM Acenta");
@@ -28,7 +30,7 @@ public class Main {
         // Insurance Company settings
         InsuranceCompany insuranceCompany = insuranceCompanyService
                 .createInsuranceCompany("Allianz", "Noter",
-                        "1243", "Ankara", new BigDecimal(0.08d));
+                        "1243", "Ankara", BigDecimal.valueOf(0.08));
 
         BankAccount allianzBankAccount1 = bankAccountService.createBankAccount("Halkbank", "TR2342",
                 new BigDecimal(1000000));
@@ -50,6 +52,13 @@ public class Main {
         Vehicle customerBurakVehicle = vehicleService.createVehicle("Toyota", "Corolla",
                 "34 HI 3434", "WVWZZZ6RZHU095472", 1995, ColorTypeEnum.WHITE);
 
+        // Creating accident to vehicle
+        Date accidentDate = new Date();
+        Accident accident = accidentService.createAccident(accidentDate, "Crashed at bridge barriers",
+                new BigDecimal(5000), 6);
+
+        vehicleService.addAccidentToVehicle(customerBurakVehicle, accident);
+
         customerService.addBankAccountToCustomer(customerBurak, customerBurakBankAccount1);
         customerService.addVehicleToCustomer(customerBurak, customerBurakVehicle);
 
@@ -59,6 +68,7 @@ public class Main {
         InsuranceRequest insuranceRequest = insuranceRequestService.createInsuranceRequest(customerBurakVehicle);
         customerService.addInsuranceRequestToCustomer(customerBurak, insuranceRequest);
 
+        // Creating proposals
         Proposal proposal1 = proposalService.createProposal();
         proposalService.addVehicleToProposal(proposal1, customerBurakVehicle);
         proposalService.addInsuranceCompanyToProposal(proposal1, insuranceCompany);
@@ -75,6 +85,7 @@ public class Main {
         insuranceRequestService.addProposalToInsuranceRequest(insuranceRequest, proposal1);
         customerService.acceptProposal(customerBurak, insuranceRequest, proposal1, agency);
 
+        System.out.println(proposal1.isApproved());
         System.out.println(agency.getBankAccountList());
         System.out.println(insuranceCompany.getBankAccountList());
         System.out.println(customerBurak.getBankAccountList() + " " + customerBurak.getPolicyList());
