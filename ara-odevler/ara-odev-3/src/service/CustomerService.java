@@ -4,7 +4,6 @@ import model.*;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.List;
 
 public class CustomerService {
 
@@ -89,6 +88,8 @@ public class CustomerService {
                                                 discountedPrice, _proposal.getStartDate(), _proposal.getEndDate());
 
                                 addPolicyToCustomer(customer, policy);
+                                insuranceRequest.setPolicy(policy);
+
                                 System.out.println("Policy succesful");
                             }
                         }

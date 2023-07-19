@@ -5,8 +5,6 @@ import java.math.BigDecimal;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.Date;
-import java.util.Scanner;
 
 public class Main {
 
@@ -30,7 +28,7 @@ public class Main {
         // Insurance Company settings
         InsuranceCompany insuranceCompany = insuranceCompanyService
                 .createInsuranceCompany("Allianz", "Noter",
-                        "1243", "Ankara", new BigDecimal(10));
+                        "1243", "Ankara", new BigDecimal(0.08d));
 
         BankAccount allianzBankAccount1 = bankAccountService.createBankAccount("Halkbank", "TR2342",
                 new BigDecimal(1000000));
