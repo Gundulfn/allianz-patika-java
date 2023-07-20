@@ -47,13 +47,12 @@ public class Transcript {
     // toString method
     @Override
     public String toString() {
-        System.out.println("Student ID: " + this.studentID);
+        String str = "Student ID: " + this.studentID + "\n";
 
         for (CourseGrade courseGrade : courseGradeList) {
-            System.out.println(courseGrade);
+            str += courseGrade + "\n";
         }
 
-        System.out.println("GPA: " + this.GPA);
-        return "";
+        return str + "GPA: " + this.GPA;
     }
 }
