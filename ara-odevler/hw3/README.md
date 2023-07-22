@@ -30,7 +30,7 @@ numerical grade stored for a grade as in the following form (for Grade.F): Grade
 ## 3. CourseGrade(Class)
 - The CourseGrade class will keep information about the department the course is offered, course code of the course, credit of the course and the grade taken for that course in the courseDepartment, courseCode and courseCredit and gradeTaken fields.
 - courseDepartment is a four letter acronym indicating the department, the class is offered.
-- The possible values of departments in your application are CENG, COMP, ECE, ME and MATH.
+- The possible values of departments in your application are CENG, COMP, ECE, ME and MATH(For this, CourseDepartment(Enum) is created and set).
  courseCode is a three digit code (e.g., 101, 200, or 590) for the course. This number should
 be between 100 and 599.
 - courseCredit is an integer that indicates how many credits the course is worth. The only
