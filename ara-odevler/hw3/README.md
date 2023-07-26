@@ -64,7 +64,7 @@ Department: CENG CourseCode: 201 Credit: 5 Grade: F
 - Class has a one-argument constructor that takes an integer containing the student’s id ,sets GPA to 0.0 and initializes the list of CourseGrade objects.
 - It has an addCourseTaken method which will take a CourseGrade object as input and inserts it into the list of course grades stored in the Transcript. This method should first check that CourseGrade object given as parameter is not null. Otherwise, it should not perform the addition and print an error message. In addition, it should update the GPA of the student accordingly.
 - The class should have a toString()method that prints the student’s transcript. This method should use the toString()method of CourseGrade class. The student’s GPA together with each of the course grades should be printed in the following form.
-- ```
+```
   Student ID: 1112234
    Department: CENG Code: 201 Credit: 5 Grade: C
    Department: CENG Code: 201 Credit: 5 Grade: A

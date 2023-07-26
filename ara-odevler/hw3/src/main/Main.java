@@ -8,6 +8,15 @@ public class Main {
         GradeTest gradeTest = new GradeTest();
         gradeTest.printGradeValues();
 
+        transcriptTest();
+
+        GenerateTranscript generateTranscript = new GenerateTranscript();
+
+        generateTranscript.takeInputFromUser();
+        generateTranscript.takeInputFromFile();
+    }
+
+    private static void transcriptTest(){
         // Custom course grades
         // non-valid setGradeTaken parameter
         CourseGrade courseGrade1 = new CourseGrade(CourseDepartment.ME);
