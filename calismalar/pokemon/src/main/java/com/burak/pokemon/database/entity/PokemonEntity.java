@@ -13,7 +13,6 @@ import java.util.UUID;
 @Table(name = "Pokemon")
 @Data
 public class PokemonEntity extends BaseEntity {
-    private UUID uuid;
 
     @Column
     private String name;

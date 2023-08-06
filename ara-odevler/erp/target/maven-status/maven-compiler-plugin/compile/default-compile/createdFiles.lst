@@ -1,0 +1,7 @@
+com/burakcanciftci/erpweekeight/database/entity/PersonEntity.class
+com/burakcanciftci/erpweekeight/controller/PersonController.class
+com/burakcanciftci/erpweekeight/util/dbutil/BaseEntity.class
+com/burakcanciftci/erpweekeight/database/repository/PersonEntityRepository.class
+com/burakcanciftci/erpweekeight/model/Person.class
+com/burakcanciftci/erpweekeight/service/PersonService.class
+com/burakcanciftci/erpweekeight/ErpWeekEightApplication.class
