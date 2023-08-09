@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table
-public class Settings extends BaseEntity {
+public class SettingsEntity extends BaseEntity {
     @Column
     private String key;
 
