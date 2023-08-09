@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-public class BaseEntityController<T> {
+public class BaseEntityController<T extends BaseEntity> {
     @Autowired
     BaseEntityService<T> baseEntityService;
 
     @GetMapping("source/{uuid}")
     public ResponseEntity<T> getEntityByUuid(@PathVariable UUID uuid) {
+
         T entity = baseEntityService.getByUUID(uuid);
 
         if (entity != null) {

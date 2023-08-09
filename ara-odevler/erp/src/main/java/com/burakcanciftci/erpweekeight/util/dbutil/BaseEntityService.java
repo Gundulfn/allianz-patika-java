@@ -1,7 +1,5 @@
 package com.burakcanciftci.erpweekeight.util.dbutil;
 
-import com.burakcanciftci.erpweekeight.database.entity.BillEntity;
-import com.burakcanciftci.erpweekeight.database.entity.OrderEntity;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -9,10 +7,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public abstract class BaseEntityService<T> {
+public abstract class BaseEntityService<T extends BaseEntity> {
 
     @Autowired
-    BaseEntityRepository<T, Long> baseEntityRepository;
+    IBaseEntityRepository<T, Long> baseEntityRepository;
 
     public T getByUUID(UUID uuid) {
         Optional<T> entityOptional = baseEntityRepository.findByUuid(uuid);
